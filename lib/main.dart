@@ -1,9 +1,11 @@
 import 'package:chaos_cryptography/encryption.dart';
+import 'package:chaos_cryptography/settings_screen.dart';
 import 'package:encrypt/encrypt.dart' as encrypt ;
 import 'package:flutter/material.dart';
 import 'user_profile.dart';
 import 'theme_manager.dart';
 import 'package:provider/provider.dart';
+import 'group_chat.dart';
 
 void main() {
   runApp(
@@ -58,9 +60,9 @@ class _HomepageState extends State<Homepage> {
   }
 
   // Function to navigate to the Group Chat screen
-  void navigateToGroupChat() {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return GroupChatScreen();
+  void navigateToChatListScreen() {
+   Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+      return ChatListScreen();
     }));
   }
 
@@ -72,7 +74,7 @@ class _HomepageState extends State<Homepage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.group),
-            onPressed: navigateToGroupChat,
+            onPressed: navigateToChatListScreen,
           ),
         ],
       ),
@@ -178,26 +180,3 @@ class _HomepageState extends State<Homepage> {
   }
 }
 
-class SettingsScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Settings')),
-      body: Center(
-        child: Text('Settings Screen Content'),
-      ),
-    );
-  }
-}
-
-class GroupChatScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Group Chat')),
-      body: Center(
-        child: Text('Group Chat Screen Content'),
-      ),
-    );
-  }
-}
